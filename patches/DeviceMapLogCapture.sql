@@ -14,16 +14,16 @@ CREATE TABLE IF NOT EXISTS /*_*/device_map_log_capture (
 
 	-- event ID (not unique)
 	event_id integer NOT NULL,
-	
+
 	-- dmap value
 	dmap text NOT NULL,
-	
+
 	-- country_code
 	country_code char(2),
 
 	-- user_agent
 	user_agent text NOT NULL
-	
+
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/device_map_log_capture_action_time ON /*_*/device_map_log_capture (action_time);
