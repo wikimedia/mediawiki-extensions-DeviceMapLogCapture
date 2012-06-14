@@ -45,7 +45,7 @@ class ApiDeviceMapLogCapture extends ApiBase {
 		return array(
 			'eventid' => 'string of eventID',
 			'token'  => 'unique edit ID for this edit session',
-			'site' => 'the site being used', 
+			'site' => 'the site being used',
 		);
 	}
 
