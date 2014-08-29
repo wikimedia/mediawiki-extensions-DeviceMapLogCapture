@@ -18,14 +18,13 @@ class ApiDeviceMapLogCapture extends ApiBase {
 	 * @see includes/api/ApiBase#execute()
 	 */
 	public function execute() {
-		global $wgRequest;
 		$params = $this->extractRequestParams();
 		$eventId = $params['eventid'];
 		$token = $params['token'];
 		$site = $params['site'];
 		$deviceMap = $params['dmap'];
 		$countryCode = null;
-		$ip = $wgRequest->getVal( 'ip', wfGetIP() );
+		$ip = $this->getRequest()->getVal( 'ip', $this->getRequest()->getIP() );
 		if ( IP::isValid( $ip ) ) {
 			if ( function_exists( 'geoip_country_code_by_name' ) ) {
 				$countryCode = geoip_country_code_by_name( $ip );
