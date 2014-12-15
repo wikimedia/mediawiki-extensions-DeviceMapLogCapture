@@ -51,7 +51,7 @@ class DeviceMapLogCaptureHooks {
 				str_replace( "\t", ' ', $countryCode ),
 				str_replace( "\t", ' ', $userAgent ),
 			) );
-			wfErrorLog( $msg, $wgDeviceMapLog );
+			MWLoggerLegacyLogger::emit( $msg, $wgDeviceMapLog );
 		}
 		return $retval;
 	}
