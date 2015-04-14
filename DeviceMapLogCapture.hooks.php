@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Logger\LegacyLogger;
+
 class DeviceMapLogCaptureHooks {
 
 	/* Static Methods */
@@ -51,7 +53,7 @@ class DeviceMapLogCaptureHooks {
 				str_replace( "\t", ' ', $countryCode ),
 				str_replace( "\t", ' ', $userAgent ),
 			) );
-			MWLoggerLegacyLogger::emit( $msg, $wgDeviceMapLog );
+			LegacyLogger::emit( $msg, $wgDeviceMapLog );
 		}
 		return $retval;
 	}
