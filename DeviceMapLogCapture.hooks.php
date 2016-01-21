@@ -28,7 +28,6 @@ class DeviceMapLogCaptureHooks {
 		$retval = true;
 		if ( $wgDeviceMapDatabase ) {
 			$dbw = wfGetDB( DB_MASTER );
-			$dbw->begin( __METHOD__ );
 			$data = array(
 				'action_time' => $dbw->timestamp(),
 				'session_id' => (string) $token,
@@ -38,8 +37,7 @@ class DeviceMapLogCaptureHooks {
 				'country_code' => (string) $countryCode,
 				'user_agent' => (string) $userAgent,
 			);
-			$db_status = $dbw->insert( 'device_map_log_capture', $data, __METHOD__ );
-			$dbw->commit( __METHOD__ );
+			$dbw->insert( 'device_map_log_capture', $data, __METHOD__ );
 		}
 
 		if ( $wgDeviceMapLog ) {
