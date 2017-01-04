@@ -28,7 +28,6 @@ $wgExtensionCredits['other'][] = array(
 	'name' => 'Device Map Log Capture',
 	'author' => 'Patrick Reilly',
 	'version' => '0.0.1',
-	'descriptionmsg' => 'device-map-log-capture-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:DeviceMapLogCapture'
 );
 
