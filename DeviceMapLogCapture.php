@@ -38,3 +38,5 @@ $wgAutoloadClasses['ApiDeviceMapLogCapture'] = $dir . 'ApiDeviceMapLogCapture.ph
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'DeviceMapLogCaptureHooks::loadExtensionSchemaUpdates';
 $wgAPIModules['devicemaplogcapture'] = 'ApiDeviceMapLogCapture';
+
+$wgMessagesDirs['DeviceMapLogCapture'] = __DIR__ . '/i18n';

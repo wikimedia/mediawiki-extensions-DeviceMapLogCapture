@@ -40,20 +40,6 @@ class ApiDeviceMapLogCapture extends ApiBase {
 		$result->addValue( 'query', $this->getModuleName(), $data );
 	}
 
-	public function getParamDescription() {
-		return array(
-			'eventid' => 'string of eventID',
-			'token'  => 'unique edit ID for this edit session',
-			'site' => 'the site being used',
-		);
-	}
-
-	public function getDescription() {
-		return array(
-			'Combined with User-Agent and x-wap-profile HTTP headers, this provides basic device information that the server can save'
-		);
-	}
-
 	public function getAllowedParams() {
 		return array(
 			'eventid' => array(
