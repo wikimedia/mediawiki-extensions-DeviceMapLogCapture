@@ -56,7 +56,7 @@ class ApiDeviceMapLogCapture extends ApiBase {
 			),
 			'dmap' => array(
 				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => 'true',
+				ApiBase::PARAM_REQUIRED => true,
 			),
 		);
 	}
