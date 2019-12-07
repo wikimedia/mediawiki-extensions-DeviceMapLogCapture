@@ -8,19 +8,13 @@ class DeviceMapLogCaptureHooks {
 
 	/**
 	 * LoadExtensionSchemaUpdates hook
-	 * @return Boolean: always true
+	 * @param DatabaseUpdater $updater
 	 */
-	public static function loadExtensionSchemaUpdates( $updater = null ) {
+	public static function loadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$dir = dirname( __FILE__ ) . '/';
 
-		if ( $updater === null ) {
-			global $wgExtNewTables, $wgExtNewIndexes, $wgExtNewFields;
-			$wgExtNewTables[] = array( 'device_map_log_capture', $dir . 'patches/DeviceMapLogCapture.sql' );
-		} else {
-			$updater->addExtensionUpdate( array( 'addTable', 'device_map_log_capture',
-				$dir . 'patches/DeviceMapLogCapture.sql', true ) );
-		}
-		return true;
+		$updater->addExtensionUpdate( array( 'addTable', 'device_map_log_capture',
+			$dir . 'patches/DeviceMapLogCapture.sql', true ) );
 	}
 
 	public static function recordDevice( $eventId, $token, $site, $deviceMap, $countryCode, $userAgent ) {
