@@ -14,8 +14,8 @@
 		]
 	},
 	"AutoloadClasses": {
-		"DeviceMapLogCaptureHooks": "DeviceMapLogCapture.hooks.php",
-		"ApiDeviceMapLogCapture": "ApiDeviceMapLogCapture.php"
+		"DeviceMapLogCaptureHooks": "includes/DeviceMapLogCaptureHooks.php",
+		"ApiDeviceMapLogCapture": "includes/api/ApiDeviceMapLogCapture.php"
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "DeviceMapLogCaptureHooks::loadExtensionSchemaUpdates"

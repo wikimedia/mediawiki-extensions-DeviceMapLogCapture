@@ -34,30 +34,30 @@ class ApiDeviceMapLogCapture extends ApiBase {
 		DeviceMapLogCaptureHooks::recordDevice( $eventId, $token, $site, $deviceMap, $countryCode, $userAgent );
 
 		$result = $this->getResult();
-		$data = array();
+		$data = [];
 		$data['dmap'] = $deviceMap;
 		$data['country_code'] = $countryCode;
 		$result->addValue( 'query', $this->getModuleName(), $data );
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'eventid' => array(
+		return [
+			'eventid' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'site' => array(
+			],
+			'site' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'token' => array(
+			],
+			'token' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'dmap' => array(
+			],
+			'dmap' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-		);
+			],
+		];
 	}
 }

@@ -11,10 +11,8 @@ class DeviceMapLogCaptureHooks {
 	 * @param DatabaseUpdater $updater
 	 */
 	public static function loadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$dir = dirname( __FILE__ ) . '/';
-
-		$updater->addExtensionUpdate( array( 'addTable', 'device_map_log_capture',
-			$dir . 'patches/DeviceMapLogCapture.sql', true ) );
+		$updater->addExtensionUpdate( [ 'addTable', 'device_map_log_capture',
+			__DIR__ . '/../patches/DeviceMapLogCapture.sql', true ] );
 	}
 
 	public static function recordDevice( $eventId, $token, $site, $deviceMap, $countryCode, $userAgent ) {
@@ -22,20 +20,20 @@ class DeviceMapLogCaptureHooks {
 		$retval = true;
 		if ( $wgDeviceMapDatabase ) {
 			$dbw = wfGetDB( DB_MASTER );
-			$data = array(
+			$data = [
 				'action_time' => $dbw->timestamp(),
-				'session_id' => (string) $token,
-				'site' => (string) $site,
-				'event_id' => (int) $eventId,
-				'dmap' => (string) $deviceMap,
-				'country_code' => (string) $countryCode,
-				'user_agent' => (string) $userAgent,
-			);
+				'session_id' => (string)$token,
+				'site' => (string)$site,
+				'event_id' => (int)$eventId,
+				'dmap' => (string)$deviceMap,
+				'country_code' => (string)$countryCode,
+				'user_agent' => (string)$userAgent,
+			];
 			$dbw->insert( 'device_map_log_capture', $data, __METHOD__ );
 		}
 
 		if ( $wgDeviceMapLog ) {
-			$msg = implode( "\t", array(
+			$msg = implode( "\t", [
 				wfTimestampNow(),
 				// Replace tabs with spaces in all strings
 				str_replace( "\t", ' ', $token ),
@@ -44,7 +42,7 @@ class DeviceMapLogCaptureHooks {
 				str_replace( "\t", ' ', $deviceMap ),
 				str_replace( "\t", ' ', $countryCode ),
 				str_replace( "\t", ' ', $userAgent ),
-			) );
+			] );
 			LegacyLogger::emit( $msg, $wgDeviceMapLog );
 		}
 		return $retval;
