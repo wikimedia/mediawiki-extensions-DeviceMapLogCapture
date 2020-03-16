@@ -6,3 +6,5 @@ composer.lock
 *~
 *.kate-swp
 .*.swp
+
+.DS_Store

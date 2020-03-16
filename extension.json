@@ -8,6 +8,9 @@
 	"APIModules": {
 		"devicemaplogcapture": "ApiDeviceMapLogCapture"
 	},
+	"requires": {
+		"MediaWiki": ">= 1.35.0"
+	},
 	"MessagesDirs": {
 		"DeviceMapLogCapture": [
 			"i18n"

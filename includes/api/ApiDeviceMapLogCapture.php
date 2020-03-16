@@ -6,6 +6,8 @@
  * @ingroup API
  */
 
+use Wikimedia\IPUtils;
+
 class ApiDeviceMapLogCapture extends ApiBase {
 
 	/**
@@ -25,7 +27,7 @@ class ApiDeviceMapLogCapture extends ApiBase {
 		$deviceMap = $params['dmap'];
 		$countryCode = null;
 		$ip = $this->getRequest()->getVal( 'ip', $this->getRequest()->getIP() );
-		if ( IP::isValid( $ip ) ) {
+		if ( IPUtils::isValid( $ip ) ) {
 			if ( function_exists( 'geoip_country_code_by_name' ) ) {
 				$countryCode = geoip_country_code_by_name( $ip );
 			}
