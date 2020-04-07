@@ -33,7 +33,14 @@ class ApiDeviceMapLogCapture extends ApiBase {
 			}
 		}
 		$userAgent = $_SERVER['HTTP_USER_AGENT'];
-		DeviceMapLogCaptureHooks::recordDevice( $eventId, $token, $site, $deviceMap, $countryCode, $userAgent );
+		DeviceMapLogCaptureHooks::recordDevice(
+			$eventId,
+			$token,
+			$site,
+			$deviceMap,
+			$countryCode,
+			$userAgent
+		);
 
 		$result = $this->getResult();
 		$data = [];
@@ -42,6 +49,9 @@ class ApiDeviceMapLogCapture extends ApiBase {
 		$result->addValue( 'query', $this->getModuleName(), $data );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		return [
 			'eventid' => [

@@ -4,8 +4,6 @@ use MediaWiki\Logger\LegacyLogger;
 
 class DeviceMapLogCaptureHooks {
 
-	/* Static Methods */
-
 	/**
 	 * LoadExtensionSchemaUpdates hook
 	 * @param DatabaseUpdater $updater
@@ -15,7 +13,23 @@ class DeviceMapLogCaptureHooks {
 			__DIR__ . '/../patches/DeviceMapLogCapture.sql', true ] );
 	}
 
-	public static function recordDevice( $eventId, $token, $site, $deviceMap, $countryCode, $userAgent ) {
+	/**
+	 * @param int $eventId
+	 * @param string $token
+	 * @param string $site
+	 * @param string $deviceMap
+	 * @param string $countryCode
+	 * @param string $userAgent
+	 * @return true
+	 */
+	public static function recordDevice(
+		$eventId,
+		$token,
+		$site,
+		$deviceMap,
+		$countryCode,
+		$userAgent
+	) {
 		global $wgDeviceMapDatabase, $wgDeviceMapLog;
 		$retval = true;
 		if ( $wgDeviceMapDatabase ) {
