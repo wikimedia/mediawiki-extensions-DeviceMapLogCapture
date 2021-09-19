@@ -9,7 +9,7 @@
 		"devicemaplogcapture": "ApiDeviceMapLogCapture"
 	},
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.35.3"
 	},
 	"MessagesDirs": {
 		"DeviceMapLogCapture": [

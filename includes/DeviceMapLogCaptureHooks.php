@@ -33,7 +33,7 @@ class DeviceMapLogCaptureHooks {
 		global $wgDeviceMapDatabase, $wgDeviceMapLog;
 		$retval = true;
 		if ( $wgDeviceMapDatabase ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$data = [
 				'action_time' => $dbw->timestamp(),
 				'session_id' => (string)$token,
