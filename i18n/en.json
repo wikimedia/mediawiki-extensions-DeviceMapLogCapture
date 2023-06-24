@@ -1,6 +1,5 @@
 {
 	"@metadata": {},
-	"apihelp-devicemaplogcapture-description": "Combined with User-Agent and x-wap-profile HTTP headers, this provides basic device information that the server can save",
 	"apihelp-devicemaplogcapture-summary": "Combined with User-Agent and x-wap-profile HTTP headers, this provides basic device information that the server can save",
 	"apihelp-devicemaplogcapture-param-eventid": "string of eventID",
 	"apihelp-devicemaplogcapture-param-site": "the site being used",
