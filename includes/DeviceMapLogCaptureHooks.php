@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Logger\LegacyLogger;
+use MediaWiki\MediaWikiServices;
 
 class DeviceMapLogCaptureHooks {
 
@@ -33,7 +34,7 @@ class DeviceMapLogCaptureHooks {
 		global $wgDeviceMapDatabase, $wgDeviceMapLog;
 		$retval = true;
 		if ( $wgDeviceMapDatabase ) {
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 			$data = [
 				'action_time' => $dbw->timestamp(),
 				'session_id' => (string)$token,
